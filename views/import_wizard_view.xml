@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Origen del importador: archivos o una planilla de Odoo -->
+    <record id="view_sembradora_import_wizard_form_spreadsheet" model="ir.ui.view">
+        <field name="name">sembradora.import.wizard.form.spreadsheet</field>
+        <field name="model">sembradora.import.wizard</field>
+        <field name="inherit_id" ref="cotizador.view_sembradora_import_wizard_form"/>
+        <field name="arch" type="xml">
+            <field name="csv_file_ids" position="before">
+                <field name="source" widget="radio" options="{'horizontal': true}"/>
+                <field name="spreadsheet_id" options="{'no_create': True}"
+                       invisible="source != 'spreadsheet'" required="source == 'spreadsheet'"/>
+            </field>
+            <field name="csv_file_ids" position="attributes">
+                <attribute name="invisible">source != 'files'</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
