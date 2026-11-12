@@ -1,7 +1,7 @@
 # Tests en cada push y despliegue al VPS (repo de infra ffunes-cru/servidor, privado):
 #
 # - tests: en un runner de GitHub, con las imágenes oficiales de Odoo 19 y PostgreSQL 16, junto con cotizador
-#   (rama de la variable COTIZADOR_REF del repo, o main) y spreadsheet_oca (OCA/spreadsheet, 19.0).
+#   (main) y spreadsheet_oca (OCA/spreadsheet, 19.0).
 # - staging: push a la rama principal, o a mano desde Actions → CI/CD → Run workflow (cualquier rama).
 # - produccion: tag v<versión del manifiesto>, con o sin la serie de Odoo, sobre un commit de la rama principal (desplegar.sh rechaza
 #   cualquier otro). Ej.: git tag v19.0.1.0.1 && git push origin v19.0.1.0.1
@@ -35,7 +35,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: ffunes-cru/cotizador
-          ref: ${{ vars.COTIZADOR_REF || 'main' }}
+          ref: main
           path: cotizador
       - uses: actions/checkout@v4
         with:
