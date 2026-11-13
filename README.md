@@ -33,6 +33,13 @@ cada fórmula. Por eso, al **Analizar**:
 El test arma una planilla con fórmulas, una columna oculta y celdas combinadas, la analiza desde el
 navegador (Chrome headless) y la importa.
 
+## Despliegue
+
+Igual que el cotizador (ver su `docs/despliegue.md`): tests en cada push, **staging** con cada push a `master` y
+**producción** con un tag de la versión del manifiesto sobre `master` (`git tag v1.0.1 && git push origin
+v1.0.1`, o `v19.0.1.0.1`). El VPS necesita antes el cotizador desplegado y `spreadsheet_oca` en
+`odoo-shared-addons`.
+
 ## Licencia y créditos
 
 AGPL-3.0 o posterior (ver `LICENSE`), como el cotizador y `spreadsheet_oca`, del que depende.
